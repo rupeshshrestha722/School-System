@@ -1,0 +1,59 @@
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+<mvc:annotation-driven />
+	<http pattern="/login" security="none"></http>
+	<http use-expressions="true">
+		<form-login login-page="/login"
+					authentication-failure-url="/login?error" default-target-url="/"
+					username-parameter="j_username"
+					password-parameter="j_password"
+		/>
+		<intercept-url pattern="/" access="hasAnyRole('admin', 'teacher', 'student')" />
+
+
+		<intercept-url pattern="/addTeacher" access="hasRole('admin')" />
+		<logout logout-success-url="/login?logout" />
+		<csrf disabled="true"/>
+	</http>
+	
+	<beans:import resource="dispatcher-servlet.xml"/>
+	
+	    <context:component-scan base-package="com.project" />
+    <context:annotation-config/>
+	
+	<beans:bean id="userDetailsDAO" class="com.project.dao.impl.UserDetailsDAOImpl" />
+	<beans:bean id="RoleDAO" class="com.project.dao.impl.RoleDAOImpl" />
+	<beans:bean id="classDAO" class="com.project.dao.impl.ClassDAOImpl" />
+	<beans:bean id="TeacherDAO" class="com.project.dao.impl.TeacherDAOImpl" />
+	<beans:bean id="StudentDAO" class="com.project.dao.impl.StudentDAOImpl" />
+	<beans:bean id="SubjectDAO" class="com.project.dao.impl.SubjectDAOImpl" />
+	<beans:bean id="MarkDAO" class="com.project.dao.impl.MarkDAOImpl" />
+	
+	
+	
+
+	 
+	<beans:bean id="customUserDetailsService" class="com.project.service.CustomUserDetailsService">
+	</beans:bean>
+	
+	<beans:bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" /> 
+	
+	<authentication-manager>  
+        <authentication-provider user-service-ref="customUserDetailsService">  
+            <password-encoder hash="plaintext">  
+        </password-encoder></authentication-provider>  
+    </authentication-manager>  
+    
+</beans:beans>

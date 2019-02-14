@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="loginLayout" template="/WEB-INF/jsp/loginLayout.jsp">
+		<put-attribute name="login"></put-attribute>
+
+	</definition>
+	<definition name="defaultTemplate" template="/WEB-INF/jsp/baseLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp" />
+	</definition>
+
+
+	<definition name="main" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/main.jsp" />
+	</definition>
+
+	<definition name="hello" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/hello.jsp" />
+	</definition>
+
+	<definition name="addClass" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/addClass.jsp" />
+	</definition>
+
+	<definition name="showClass" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/showClass.jsp" />
+	</definition>
+
+	<definition name="classes" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/classes.jsp" />
+	</definition>
+
+	<definition name="addTeacher" extends="defaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/pages/addTeacher.jsp" />
+	</definition>
+
+	<definition name="teachers" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/teachers.jsp" />
+	</definition>
+	
+		<definition name="teacher" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/teacher.jsp" />
+	</definition>
+	<!--definition name="editTeacher" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/editTeacher.jsp" />
+	</definition-->
+	<definition name="editClass" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/editClass.jsp" />
+	</definition>
+	<definition name="addStudent" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/addStudent.jsp" />
+	</definition>
+	<definition name="students" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/students.jsp" />
+	</definition>
+	<!--definition name="editStudent" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/editStudent.jsp" />
+	</definition-->
+	<definition name="addSubject" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/addSubject.jsp" />
+	</definition>
+	<definition name="subjects" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/subjects.jsp" />
+	</definition>
+	<!--definition name="editSubject" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/editSubject.jsp" />
+	</definition-->
+	<definition name="listClasses" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/listClasses.jsp" />
+	</definition>
+	<definition name="subjectsOfClass" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/subjectsOfClass.jsp" />
+	</definition>
+	<definition name="listStudents" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/listStudents.jsp" />
+	</definition>
+	<definition name="studentMarks" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/studentMarks.jsp" />
+	</definition>
+	<definition name="addMark" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/addMark.jsp" />
+	</definition>
+	<!--definition name="editMark" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/editMark.jsp" />
+	</definition-->
+	
+	
+
+	<definition name="login" extends="loginLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/pages/login.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"></put-attribute>
+
+	</definition>
+</tiles-definitions>
